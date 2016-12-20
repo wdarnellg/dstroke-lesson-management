@@ -1,1 +1,0 @@
-# dstroke-lesson-management
