@@ -74,18 +74,6 @@
             
     </section>
     </div>
-    <div class="col-md-6 col-sm-5 col-xs-8">
-         {!! Form::open(array('url' => '') !!}
-        <div class="form-group">
-            {!! Form::label('email', 'Your Email:') !!}
-            {!! Form::text('players[]', $selectPlayers, null, ['class' => 'form-control', 'multiple']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('signup_date', 'Signup Date:') !!}
-            {!! Form::text('signup_date', null, ['class' => 'form-control']) !!}
-        </div>
-    
-    {!! Form::close() !!}     
-    </div>
+ 
     
 @endsection
