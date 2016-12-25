@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Collective\Html\Eloquent\FormAccessible;
+use Illuminate\Notifications\Notification;
 use Carbon\Carbon;
 
 
@@ -16,12 +17,13 @@ class Players extends Model
     
     public function users()
     {
-        return $this->belongsTo('App\User', 'users_id');
+        return $this->belongsTo('App\User', 'id');
     }
     
     public function lessonhours()
     {
-        return $this->belongsToMany('App\Lessonhours', 'lessonhour_player', 'players_id', 'lessonhours_id' );
+        return $this->belongsToMany('App\Lessonhours', 'lessonhour_player', 'players_id', 'lessonhours_id')
+                                        ->withTimestamps();
     }
     
     public function getFullName($id)

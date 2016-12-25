@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Collective\Html\Eloquent\FormAccessible;
 use Carbon\Carbon;
+use Illuminate\Notifications\Notifiable;
+
+
 
 class Lessonhours extends Model
 {
@@ -14,7 +17,8 @@ class Lessonhours extends Model
     
     public function players()
     {
-        return $this->belongsToMany('App\Players', 'lessonhour_player', 'lessonhours_id', 'players_id');
+        return $this->belongsToMany('App\Players', 'lessonhour_player', 'lessonhours_id', 'players_id')
+                                        ->withTimestamps();
     }
     
     public function packages()
