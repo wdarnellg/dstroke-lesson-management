@@ -23,7 +23,7 @@
                             <li class="list-group-item">
                                 @foreach($lessonhours->players as $player)
                                    <h4> {{ $player->getFullName($player->id) }}</h4>
-                                    @endforeach
+                                @endforeach
                                 
                       <h5>Lesson Package:  {{ $lessonhours->packages->name }}</h5>  
                       <p class="pull-right">
@@ -40,27 +40,24 @@
                                 <div class="card card-inverse text-xs-center" style="background-color: white; border-color: #8971e8;">
                             <div class="card-block">
                                <blockquote class="card-blockquote">
-                                   <ul class="list-group">
+                                    <ul class="list-group">
+                                    @if(count($lessonhours->hoursused) == 0)
                                         <li class="list-group-item">
-                                            <ul class="list-group">
-                                            @if(count($lessonhours->hoursused) == 0)
-                                                <li class="list-group-item">
-                                                    No Hours Used
-                                                </li>
-                                                @else
-                                                    @foreach($lessonhours->hoursused as $hour)
-                                                    <li class="list-group-item card-inverse"  style="background-color: #f9f8de; border-color: #ccba6c;">
-                                                        <a href="/hoursused/{{ $hour->id }}/hoursusededit" class="btn btn-sm btn-default pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                                       Lesson Date:  <strong>{{ $hour->date_time->format('D-M-d-Y') }}</strong><br>
-                                                        Hours in lesson: {{ $hour->numberofhours }}<br>
-                                                        Comments:<br>
-                                                        {{ $hour->comments }}
-                                                    </li>
-                                                    @endforeach
-                                            @endif
-                                            </ul>
+                                            No Hours Used
                                         </li>
-                                    </ul> 
+                                        @else
+                                            @foreach($lessonhours->hoursused as $hour)
+                                            <li class="list-group-item card-inverse"  style="background-color: #f9f8de; border-color: #ccba6c;">
+                                                <a href="/hoursused/{{ $hour->id }}/hoursusededit" class="btn btn-sm btn-default pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                               Lesson Date:  <h4 class="card-title">{{ $hour->date_time->format('D-M-d-Y') }}</h4>
+                                               
+                                                <h5 class="card-title">Hours in lesson: {{ $hour->numberofhours }}</h5> 
+                                                Comments:
+                                                <p class="card-text">{{ $hour->comments }}</p>
+                                            </li>
+                                            @endforeach
+                                    @endif
+                                    </ul>
                                 </blockquote>
                             </div>
                     </div>
@@ -116,4 +113,8 @@
         </div>
         
         
+@endsection
+
+@section('scripts')
+<script type="text/javascript" src="/src/js/script.js"></script>
 @endsection

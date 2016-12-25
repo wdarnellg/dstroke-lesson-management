@@ -43,7 +43,7 @@
                                 @endforeach
                             </ul>
                         </li>
-            </ul>
+                    </ul>
                 </blockquote>
             </div>
         </div>

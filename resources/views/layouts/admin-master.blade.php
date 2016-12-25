@@ -17,7 +17,7 @@
             $( "#datepicker" ).datepicker({
               changeMonth: true,
               changeYear: true,
-              dateFormat: "yy-mm-dd"
+              dateFormat: "m/d/yy"
             });
           } );
         </script>

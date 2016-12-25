@@ -84,7 +84,7 @@
         </div>
         <div class="form-group">
             {!! Form::label('signup_date', 'Signup Date:') !!}
-            {!! Form::text('signup_date', null, ['class' => 'form-control']) !!}
+            {!! Form::text('signup_date', null, ['class' => 'form-control', 'id' => 'datepicker']) !!}
         </div>
         <div class="form-group">
             {!! Form::label('packages_id', 'Lesson Package:') !!}
