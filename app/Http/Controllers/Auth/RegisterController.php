@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Notification;
+use App\Notifications\WelcomeToDStrokeTennis;
 
 class RegisterController extends Controller
 {
@@ -63,21 +65,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'familyname' => $data['familyname'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
-        
-        Mail::send('registration.welcome', $data, function($message) use ($data)
-            {
-                $message->from('pleaseDONTreply@dstroketennis.com', "DStroke Tennis");
-                $message->subject("Thank You From DStroke Tennis");
-                $message->to($data['email']);
-            });
-             
-            return $user;
+        //$user = User::orderBy('created_at', 'desc')->first(); 
+        //dd($user);
+        $user->notify(new WelcomeToDStrokeTennis($user));
+        return $user;
         
     }
 }

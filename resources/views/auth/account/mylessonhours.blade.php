@@ -10,10 +10,10 @@
     <div class="col-md-1 col-sm-1"></div>
     <div class="col-md-6 col-sm-5 col-xs-8">
 @include('includes.info-box')
-            <section>
-                <h4>Player Profile</h4>
+    <section>
+        <h4>Player Profile</h4>
                 
-            <div class="card card-inverse text-xs-center" style="background-color: #4286f4; border-color: #b5cbdd;">
+        <div class="card card-inverse text-xs-center" style="background-color: #4286f4; border-color: #b5cbdd;">
                 <div class="card-block">
                    <blockquote class="card-blockquote">
                     <ul class="list-group">

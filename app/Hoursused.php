@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Collective\Html\Eloquent\FormAccessible;
+use Illuminate\Notifications\Notifiable;
 use Carbon\Carbon;
 
 class Hoursused extends Model

@@ -51,12 +51,10 @@ Route::get('/home', 'HomeController@index');
 
 //Lessonhours Routes/////////////////////////////////////////////////////////////////////
     Route::get('/lessonhours/', 'AdminController@getLessonHours')->middleware('admin');
-    Route::get('/lessonhours/sharedlessonhours', 'AdminController@createSharedLessonhours')->middleware('admin');
     Route::get('/lessonhours/{lessonhours}', 'AdminController@Lessonhoursshow')->middleware('admin');
     Route::get('/lessonhours/{lessonhours}/lessonhoursedit', 'AdminController@LessonhoursEdit')->middleware('admin');
     Route::post('/lessonhours/{lessonhours}/hoursused', 'AdminController@storeHoursused')->middleware('admin');
     Route::patch('/lessonhours/{lessonhours}', 'AdminController@LessonhoursUpdate')->middleware('admin');
-    Route::post('/sharedlessonhours', 'AdminController@storeSharedLessonhours');
 //End Lessonhours Routes
 
 //Hoursused Routes/////////////////////////////////////////////////////////////////////

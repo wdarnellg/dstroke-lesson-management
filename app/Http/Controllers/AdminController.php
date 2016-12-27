@@ -13,11 +13,14 @@ use App\Hoursused;
 use Illuminate\Support\Facades\Event;
 use Collective\Html\FormFacade;
 use Collective\Html\HtmlFacade;
-use App\Events\MessageSent;
-use App\Events\DStrokeMail;
+use Illuminate\Notifications\Messages\MailMessage;
+use Notification;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\ThankYouForLessonHoursPurchase;
+use App\Notifications\HoursusedPosted;
 use DB;
-use Mail;
-use App\Mail\ThankYouForLessonPackagePurchase;
+
+
 
 class AdminController extends Controller
 {
@@ -86,7 +89,6 @@ class AdminController extends Controller
     public function playershow(Players $players,  Packages $packages)
     {
         $selectPlayers = Players::select(DB::raw("CONCAT(fname, ' ', lname) AS players"), 'id')->orderBy('lname')->pluck('players', 'id');
-       // dd($selectPlayers);
         $packages = Packages::orderBy('name')->pluck('name', 'id');
         
         return view('admin.players.playerprofile', compact('players', 'selectPlayers', 'packages'));
@@ -99,7 +101,7 @@ class AdminController extends Controller
             'lname' => 'required',
             'gender' => 'required',
             'birthdate' => 'required'
-        ]);
+        ]); 
         $players = new Players;
         $players->fname = $request->fname;
         $players->lname = $request->lname;
@@ -149,24 +151,15 @@ class AdminController extends Controller
             'packages_id' => 'required|numeric',
             'signup_date' => 'required'
         ]);
-        //dd($request);
         $lessonhours = Lessonhours::create($request->all()); 
 
         $lessonhours->players()->attach($request->players);
-            
-            Mail::to(new ThankYouForLessonPackagePurchase($lessonhours));
-            
-            return back()->with(['success' => 'Player is enrolled in new Lesson Hour Session.']);
+        
+           $players->users->notify(new ThankYouForLessonHoursPurchase($players->users));
        
+            return back()->with(['success' => 'Player is enrolled in new Lesson Package.']);
     }
-    
-    public function createSharedLessonhours()
-    {
-        $players = Players::orderBy('lname')->pluck('fname', 'id');
-        $packages = Packages::orderBy('name')->pluck('name','id');
-        return view('admin.lessonhours.sharedlessonhours', compact('players', 'packages'));
-    }
-    
+
     //End Lessonhours functions
     
     //Hoursused functions///
@@ -187,13 +180,13 @@ class AdminController extends Controller
         $hoursused->date_time = $request['date_time'];
         $hoursused->numberofhours = $request['numberofhours'];
         $hoursused->comments = $request['comments'];
-        
-        if($lessonhours->hoursused()->save($hoursused)){
-            //Event::fire(new DStrokeMail($hoursused));
-               return back()->with(['success' => 'Hours Used successfully added!']); 
-            } else {
-                return back()->with(['fail' => 'Something went wrong!']);
+        $lessonhours->hoursused()->save($hoursused);
+            foreach($lessonhours->players as $player){
+                $player->users;
+                $player->notify(new HoursusedPosted($player->users));
             }
+               return back()->with(['success' => 'Hours Used successfully added!']); 
+            
     }
     
     public function HoursusedEdit(Hoursused $hoursused)

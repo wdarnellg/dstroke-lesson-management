@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Notifiable;
 use Carbon\Carbon;
 
 
@@ -17,7 +18,7 @@ class Players extends Model
     
     public function users()
     {
-        return $this->belongsTo('App\User', 'id');
+        return $this->belongsTo('App\User', 'users_id');
     }
     
     public function lessonhours()
