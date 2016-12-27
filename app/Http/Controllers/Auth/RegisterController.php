@@ -73,8 +73,8 @@ class RegisterController extends Controller
         ]);
         //$user = User::orderBy('created_at', 'desc')->first(); 
         //dd($user);
-        $user->notify(new WelcomeToDStrokeTennis($user));
-        return $user;
+        // $user->notify(new WelcomeToDStrokeTennis($user));
+         return $user;
         
     }
 }
