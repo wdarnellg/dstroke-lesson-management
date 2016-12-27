@@ -181,10 +181,10 @@ class AdminController extends Controller
         $hoursused->numberofhours = $request['numberofhours'];
         $hoursused->comments = $request['comments'];
         $lessonhours->hoursused()->save($hoursused);
-            foreach($lessonhours->players as $player){
-                $player->users;
-                $player->notify(new HoursusedPosted($player->users));
-            }
+            // foreach($lessonhours->players as $player){
+            //     $player->users;
+            //     $player->notify(new HoursusedPosted($player->users));
+            // }
                return back()->with(['success' => 'Hours Used successfully added!']); 
             
     }
