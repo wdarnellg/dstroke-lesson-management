@@ -20,7 +20,9 @@
             <form role="form" action="/lessonhours/{{ $lessonhours->id }}" method="POST">
                 {{ method_field('PATCH') }}
                <div class="form-group">
-                <label for="players_id">{{ $lessonhours->players->getFullName($lessonhours->players_id) }}</label>
+                @foreach ($lessonhours->players as $lessonhour)
+                <label for="players_id">{{ $lessonhour->players->getFullName($lessonhour->players_id) }}</label>
+                @endforeach
                 <input class="form-control" type="hidden" name="players_id" id="players_id" value="{{ $lessonhours->players_id }}"/>
             </div> 
                 
