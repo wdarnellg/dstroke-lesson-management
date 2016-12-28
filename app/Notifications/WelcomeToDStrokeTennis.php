@@ -48,8 +48,11 @@ class WelcomeToDStrokeTennis extends Notification
                     ->subject('DStroke Tennis Welcomes You.')
                     ->greeting('You are now a registered user.')
                     ->line('If you have not done so, please login and enter your player profile information')
+                    ->line('Click on View, then Family Profile and fill out the Add a New Family Member (Player) form.')
                     ->action('Login To D`Stroke Tennis', 'http://dstroketennis.com')
-                    ->line('Please call, text, or email if you have any problems or questions.');
+                    ->line('Please call, text, or email if you have any problems or questions.')
+                    ->line('254-493-3116 or dstroketennis@gmail.com')
+                    ->line('Thank You!');
     }
 
     /**

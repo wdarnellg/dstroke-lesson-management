@@ -71,9 +71,8 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
-        //$user = User::orderBy('created_at', 'desc')->first(); 
-        //dd($user);
-        // $user->notify(new WelcomeToDStrokeTennis($user));
+        $user = User::orderBy('created_at', 'desc')->first();
+        $user->notify(new WelcomeToDStrokeTennis($user));
          return $user;
         
     }

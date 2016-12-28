@@ -11,7 +11,7 @@
       <image class="card-img-top img-rounded img-responsive center-block" src="{{ URL::asset('/img/DarnellBlueShirt.jpg') }}" alt="Darnell blue shirt">
       <div class="card-block">
         <p class="card-text">Since 1997 teaching tennis to people of all levels and age groups has been a labor of love and and joy.</p><p class="card-text"> Let me help you with your tennis!</p>
-        <!--<a href="#" class="btn btn-default">View Lesson Packages</a>-->
+        <a href="#" class="btn btn-default">View Lesson Packages</a>
       </div>
     </div>
     </div>
