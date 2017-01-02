@@ -18,7 +18,10 @@ use Notification;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ThankYouForLessonHoursPurchase;
 use App\Notifications\HoursusedPosted;
+use App\Mail\ThankYouForLessonPackagePurchase;
+use App\Mail\LessonhoursRecorded;
 use DB;
+use Mail;
 
 
 
@@ -149,15 +152,21 @@ class AdminController extends Controller
     {
         $this->validate($request, [
             'packages_id' => 'required|numeric',
-            'signup_date' => 'required'
+            'signup_date' => 'required',
+            'players'    => 'required',
+            'players.*' => 'exists:players,id'
         ]);
         $lessonhours = Lessonhours::create($request->all()); 
-
+      
         $lessonhours->players()->attach($request->players);
+           
+        Players::with('users')->whereIn('id', $request->players)->get()
+        ->each(function ($player) use ($lessonhours) {
+        Mail::to($player->users)->send(new ThankYouForLessonPackagePurchase($lessonhours));
+        });
         
-           $players->users->notify(new ThankYouForLessonHoursPurchase($players->users));
-       
-            return back()->with(['success' => 'Player is enrolled in new Lesson Package.']);
+        return back()->with(['success' => 'Player is enrolled in new Lesson Package.']);
+        
     }
 
     //End Lessonhours functions
@@ -181,11 +190,13 @@ class AdminController extends Controller
         $hoursused->numberofhours = $request['numberofhours'];
         $hoursused->comments = $request['comments'];
         $lessonhours->hoursused()->save($hoursused);
-            // foreach($lessonhours->players as $player){
-            //     $player->users;
-            //     $player->notify(new HoursusedPosted($player->users));
-            // }
-               return back()->with(['success' => 'Hours Used successfully added!']); 
+        
+         Players::with('users')->whereIn('id', $request->lessonhours->players)->get()
+        ->each(function ($player) use ($hoursused) {//dd($player, $lessonhours);
+        Mail::to($player->users)->send(new LessonhoursRecorded($hoursused));
+        });
+        
+        return back()->with(['success' => 'Hours Used successfully added!']); 
             
     }
     

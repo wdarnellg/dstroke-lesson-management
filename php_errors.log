@@ -1,1 +1,4 @@
 [13-Dec-2016 22:02:25 UTC] PHP Fatal error:  Cannot use [] for reading in /home/ubuntu/workspace/storage/framework/views/cd8f83d6fa914676594b68e65aef278b7569af4e.php on line 12
+[28-Dec-2016 20:42:00 America/Chicago] PHP Fatal error:  Trait 'App\Illuminate\Notifications\Notifiable' not found in /home/ubuntu/workspace/app/Players.php on line 14
+[29-Dec-2016 06:16:51 America/Chicago] PHP Fatal error:  Trait 'App\Illuminate\Notifications\Notifiable' not found in /home/ubuntu/workspace/app/Hoursused.php on line 12
+[29-Dec-2016 06:20:07 America/Chicago] PHP Fatal error:  Trait 'App\Illuminate\Notifications\Notifiable' not found in /home/ubuntu/workspace/app/Hoursused.php on line 12

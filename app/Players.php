@@ -4,17 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Collective\Html\Eloquent\FormAccessible;
-use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Notifiable;
 use Carbon\Carbon;
 
 
 class Players extends Model
 {
+    use Notifiable;
     public $table = "players";
     
     protected $fillable = array('fname', 'lname', 'gender', 'birthdate');
-    
     
     public function users()
     {

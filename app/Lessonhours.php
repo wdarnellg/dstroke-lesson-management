@@ -11,6 +11,8 @@ use Illuminate\Notifications\Notifiable;
 
 class Lessonhours extends Model
 {
+    use Notifiable;
+    
     protected $fillable = array('signup_date', 'players_id', 'packages_id');
     
     public $table = "lessonhours";
@@ -21,15 +23,17 @@ class Lessonhours extends Model
                                         ->withTimestamps();
     }
     
+    public function hoursused()
+    {
+       return $this->hasMany('App\Hoursused', 'lessonhours_id');
+    }
+    
     public function packages()
     {
         return $this->belongsTo('App\Packages', 'packages_id');
     }
     
-    public function hoursused()
-    {
-       return $this->hasMany('App\Hoursused', 'lessonhours_id');
-    }
+    
     
     protected $dates = ['signup_date'];
     protected $touches = ['players'];

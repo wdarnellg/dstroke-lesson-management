@@ -6,13 +6,13 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Hoursused;
 use App\Lessonhours;
 
-
-class ThankYouForLessonPackagePurchase extends Mailable
+class LessonhoursRecorded extends Mailable
 {
     use Queueable, SerializesModels;
-    
+    public $hoursused;
     public $lessonhours;
     public $players;
 
@@ -21,10 +21,10 @@ class ThankYouForLessonPackagePurchase extends Mailable
      *
      * @return void
      */
-    public function __construct(Lessonhours $lessonhours)
+    public function __construct(Hoursused $hoursused)
     {
-        $this->lessonhours = $lessonhours;
-     }
+        $this->hoursused = $hoursused;
+    }
 
     /**
      * Build the message.
@@ -33,8 +33,8 @@ class ThankYouForLessonPackagePurchase extends Mailable
      */
     public function build()
     {
-       $this->from('dstroketennis@gmail.com', 'dstroke-lesson-management')
-       ->subject('Thank You for Your Lesson Package Purchase')
-       ->view('admin.email.lessonpackagenotification');
+        $this->from('dstroketennis@gmail.com', 'dstroke-lesson-management')
+       ->subject('You Used Some Tennis Time')
+       ->view('admin.email.hoursusednotification');
     }
 }

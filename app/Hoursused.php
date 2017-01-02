@@ -9,6 +9,8 @@ use Carbon\Carbon;
 
 class Hoursused extends Model
 {
+    use Notifiable;
+    
     use FormAccessible;
     
     public $table = "hoursused";
