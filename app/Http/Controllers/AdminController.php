@@ -156,13 +156,14 @@ class AdminController extends Controller
             'players'    => 'required',
             'players.*' => 'exists:players,id'
         ]);
+        
         $lessonhours = Lessonhours::create($request->all()); 
       
         $lessonhours->players()->attach($request->players);
            
         Players::with('users')->whereIn('id', $request->players)->get()
         ->each(function ($player) use ($lessonhours) {
-        Mail::to($player->users)->send(new ThankYouForLessonPackagePurchase($lessonhours));
+        Mail::to($player->users)->bcc('dstroketennis@gmail.com')->send(new ThankYouForLessonPackagePurchase($lessonhours));
         });
         
         return back()->with(['success' => 'Player is enrolled in new Lesson Package.']);
@@ -185,15 +186,16 @@ class AdminController extends Controller
             'numberofhours' => 'required|numeric',
             'comments' => 'required|max:700'
         ]);
+        
         $hoursused = new Hoursused();
         $hoursused->date_time = $request['date_time'];
         $hoursused->numberofhours = $request['numberofhours'];
         $hoursused->comments = $request['comments'];
         $lessonhours->hoursused()->save($hoursused);
         
-         Players::with('users')->whereIn('id', $request->lessonhours->players)->get()
-        ->each(function ($player) use ($hoursused) {//dd($player, $lessonhours);
-        Mail::to($player->users)->send(new LessonhoursRecorded($hoursused));
+         Players::with('users')->whereIn('id', $lessonhours->players)->get()
+        ->each(function ($players) use ($lessonhours, $hoursused) { 
+        Mail::to($players->users)->bcc('dstroketennis@gmail.com')->send(new LessonhoursRecorded($lessonhours, $hoursused));
         });
         
         return back()->with(['success' => 'Hours Used successfully added!']); 

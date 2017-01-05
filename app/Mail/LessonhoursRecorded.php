@@ -21,9 +21,11 @@ class LessonhoursRecorded extends Mailable
      *
      * @return void
      */
-    public function __construct(Hoursused $hoursused)
+    public function __construct(Lessonhours $lessonhours, Hoursused $hoursused)
     {
+        $this->lessonhours = $lessonhours;
         $this->hoursused = $hoursused;
+       
     }
 
     /**
@@ -33,7 +35,7 @@ class LessonhoursRecorded extends Mailable
      */
     public function build()
     {
-        $this->from('dstroketennis@gmail.com', 'dstroke-lesson-management')
+        $this->from('dstroketennis@gmail.com', 'D`Stroke Lesson Hours Mgmt')
        ->subject('You Used Some Tennis Time')
        ->view('admin.email.hoursusednotification');
     }

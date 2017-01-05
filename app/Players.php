@@ -26,6 +26,11 @@ class Players extends Model
                                         ->withTimestamps();
     }
     
+    // public function hoursused()
+    // {
+    //     return $this->hasManyThrough('App\Hoursused', 'App\Lessonhours', 'players_id', 'lessonhours_id');
+    // }
+    
     public function getFullName($id)
     {
         return ucfirst($this->fname ) . ' ' . ucfirst($this->lname);
