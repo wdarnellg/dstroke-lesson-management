@@ -1,8 +1,6 @@
-<p>Thank you, 
+<p>Thank you 
 @foreach($lessonhours->players as $player)
-{
-    {{ $player->getFullName($player->id) }},
-}
+    {{ $player->getFullName($player->id) }}, 
 @endforeach
 for your  {{ $hoursused->date_time->format('D-M-d-Y') }} lesson/practice.  You have {{ $lessonhours->packages->numberofhours - $lessonhours->hoursused->sum('numberofhours') }} hour(s) remaing in your current {{ $lessonhours->packages->name }} package.
 <br>

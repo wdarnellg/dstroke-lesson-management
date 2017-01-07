@@ -14,7 +14,7 @@ class LessonhoursRecorded extends Mailable
     use Queueable, SerializesModels;
     public $hoursused;
     public $lessonhours;
-    public $players;
+    
 
     /**
      * Create a new message instance.
@@ -35,7 +35,7 @@ class LessonhoursRecorded extends Mailable
      */
     public function build()
     {
-        $this->from('dstroketennis@gmail.com', 'D`Stroke Lesson Hours Mgmt')
+        $this->from('dstroketennis@gmail.com', 'D`Stroke Tennis Lesson Hours Mgmt')
        ->subject('You Used Some Tennis Time')
        ->view('admin.email.hoursusednotification');
     }

@@ -160,8 +160,8 @@ class AdminController extends Controller
         $lessonhours = Lessonhours::create($request->all()); 
       
         $lessonhours->players()->attach($request->players);
-           
-        Players::with('users')->whereIn('id', $request->players)->get()
+        
+       Players::with('users')->whereIn('id', $request->players)->get()
         ->each(function ($player) use ($lessonhours) {
         Mail::to($player->users)->bcc('dstroketennis@gmail.com')->send(new ThankYouForLessonPackagePurchase($lessonhours));
         });
@@ -192,12 +192,10 @@ class AdminController extends Controller
         $hoursused->numberofhours = $request['numberofhours'];
         $hoursused->comments = $request['comments'];
         $lessonhours->hoursused()->save($hoursused);
-        
-         Players::with('users')->whereIn('id', $lessonhours->players)->get()
-        ->each(function ($players) use ($lessonhours, $hoursused) { 
-        Mail::to($players->users)->bcc('dstroketennis@gmail.com')->send(new LessonhoursRecorded($lessonhours, $hoursused));
-        });
-        
+       
+       $mail = $lessonhours->players->pluck('users.email'); 
+        Mail::to($mail)->bcc('dstroketennis@gmail.com')->send(new LessonhoursRecorded($lessonhours, $hoursused)); 
+      
         return back()->with(['success' => 'Hours Used successfully added!']); 
             
     }
