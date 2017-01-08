@@ -1,25 +1,26 @@
-@extends('layouts.master')
+@extends('layouts.bsmaster')
+
+@section('sidebar-left')
+  <div class="col-sm-2 sidenav">
+    <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/DarnellBlueShirt.jpg') }}" alt="Darnell blue shirt">
+    <div class="card-block">
+      <p class="card-text">Since 1997 teaching tennis to people of all levels and age groups has been a labor of love and and joy.</p><p class="card-text"> Let me help you with your tennis!</p>
+      
+  </div>  
+  </div>
+  
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-2 col-sm-2">
-        <div class="card">
-          <div class="card-header">
-        <h3 class="card-title">Welcome</h3>
-      </div>
-      <image class="card-img-top img-rounded img-responsive center-block" src="{{ URL::asset('/img/DarnellBlueShirt.jpg') }}" alt="Darnell blue shirt">
-      <div class="card-block">
-        <p class="card-text">Since 1997 teaching tennis to people of all levels and age groups has been a labor of love and and joy.</p><p class="card-text"> Let me help you with your tennis!</p>
-        <a href="#" class="btn btn-default">View Lesson Packages</a>
-      </div>
+  <div class=" text-left"> 
+      <h1>Welcome</h1>
+       <image class="img-thumbnail img-responsive center-block" src="{{ URL::asset('/img/OnDCourtFade.png') }}" alt="D`Stroke Tennis" style="width: 100%" </image></image>
     </div>
-    </div>
-        <div class="col-md-8 col-sm-6">
-            <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/OnDCourtFade.png') }}" alt="D`Stroke Tennis"></image>
-        </div>
-        <div class="col-md-2 col-sm-2">
-        <div class="row">
+@endsection
+
+@section('sidebar-right')
+  <div class="col-sm-2 sidenav">
+      <div class="row">
         <div class="card">
       <image class="card-img-top img-rounded img-responsive center-block" src="{{ URL::asset('/img/ForehandBallToss.jpg') }}" alt="Darnell blue shirt">
       <div class="card-block">
@@ -38,6 +39,6 @@
     </div>
     </div>
     </div>
-    </div>
-</div>
-@endsection
+    @endsection
+
+
