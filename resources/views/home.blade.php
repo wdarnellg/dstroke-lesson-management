@@ -1,4 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.bsmaster')
+
+@section('sidebar-left')
+
+@endsection
 
 @section('content')
 <div class="container">
@@ -9,4 +13,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('sidebar-right')
+
 @endsection

@@ -1,7 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.bsmaster')
 
-@section('title')
-    D`Stroke Tennis
+@section('sidebar-left')
 @endsection
 
 @section('content')
@@ -76,4 +75,7 @@
     </div>
  
     
+@endsection
+
+@section('sidebar-right')
 @endsection
