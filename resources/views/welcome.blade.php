@@ -22,7 +22,7 @@
   <div class="col-sm-2 sidenav">
       <div class="row">
         <div class="card">
-      <image class="card-img-top img-rounded img-responsive center-block" src="{{ URL::asset('/img/ForehandBallToss.jpg') }}" alt="Darnell blue shirt">
+      <image class="card-img-top img-rounded img-responsive center-block" src="{{ URL::asset('/img/ForehandBallToss.jpg') }}" alt="Darnell blue shirt"></image>
       <div class="card-block">
         <h4 class="card-title">Private Training</h4>
         <p class="card-text">Some of the more intense packages available are geared toward high levels of tennis racquet and ball control.</p><p class="card-text"> Let me help you with your tennis!</p>

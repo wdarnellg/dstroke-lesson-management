@@ -15,7 +15,7 @@
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {height: 500px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -84,14 +84,14 @@
     </div>
   </div>
 </nav>
+
   @section('sidebar-left')
    <div class="col-sm-2 sidenav">
     </div>
   @show
-<div class="container-fluid text-center">    
+<div class="container-fluid text-left">    
   <div class="row content">
-     
-   
+    
     <div class="col-sm-8 text-left"> 
       @yield('content')
       
@@ -101,9 +101,8 @@
      
     </div>
     @show
-  </div>
-</div>
-
+  </div><!-- row content-->
+</div><!-- container-fluid-->
 <footer class="container-fluid text-center">
   <p><span class="glyphicon glyphicon-copyright-mark"></span>THAT DARN Web</p>
 </footer>
