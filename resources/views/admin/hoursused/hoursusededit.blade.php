@@ -13,7 +13,11 @@
 <div class="col-md-4 col-sm-6">
      @include('includes.info-box')
      <div class="row">
-         <h4>Edit Hours Used For: {{ $hoursused->lessonhours->players->getFullName($hoursused->lessonhours->players_id) }}</h4>
+         <h4>Edit Hours Used For:
+         @foreach($hoursused->lessonhours->players as $player)
+         {{ $player->getFullName($player->id) }}
+         @endforeach
+         </h4>
         <h5 class="pull-right"><a href="/lessonhours/{{ $hoursused->lessonhours_id }}">Package Details</a></h5>
      </div>
             <form role="form" action="/hoursused/{{ $hoursused->id }}" method="POST">
