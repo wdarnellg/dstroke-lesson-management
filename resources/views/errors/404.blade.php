@@ -40,7 +40,9 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">The page you seek is not at this location.</div>
+                <div class="title">
+                    <strong>The page you seek is not at this location.</strong>
+                    </div>
             </div>
         </div>
     </body>

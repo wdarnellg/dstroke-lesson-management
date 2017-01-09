@@ -40,7 +40,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">You are not authorized to view this page. Tell Darnell to hide things a little better.</div>
+                <div class="title">
+                    <strong>You are not authorized to view this page. Tell Darnell to hide things a little better.</strong></div>
             </div>
         </div>
     </body>
