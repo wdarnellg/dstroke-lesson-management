@@ -1,57 +1,56 @@
 @extends('layouts.accounts')
 
 @section('sidebar-left')
-<div class="col-sm-2 col-xs-2">
+<div class="col-md-2">
     <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/users_family.jpg') }}" alt="Family Profile"></imgage>
 </div>
 @endsection
 
 @section('content')
-    <div class="col-sm-6 col-xs-6">
+    <div class="col-md-6">
         @include('includes.info-box')
          <h5>Family Profile</h5>
         <div class="card text-xs-center" style="background-color: #4286f4; border-color: #b5cbdd;">
             <ul class="list-group">
-                    <li class="list-group-item">
-                        <h3>Family: {{ $families->familyname }}</h3>
-                        
-                       <p>{{ $families->phone }}</p> 
-                       <p>{{ $families->email }}</p>
-                        
-                         <ul class="list-group">
-                             @if(count($families->players) == 0)
-                                <li class="list-group-item">
-                                    No members added
-                                </li>
-                        </ul>
-                            @endif   
-                            <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Family Member</th>
-                                    <th>Gender</th>
-                                    <th>Birthdate</th>
-                                </tr>
-                            </thead>
-                            <tbody  class="card-inverse"  style="background-color: #f9f8de; border-color: #ccba6c;">
-                            @foreach($families->players as $player)
+                <li class="list-group-item">
+                    <h3>Family: {{ $families->familyname }}</h3>
+                    
+                   <p>{{ $families->phone }}</p> 
+                   <p>{{ $families->email }}</p>
+                    
+                     <ul class="list-group">
+                         @if(count($families->players) == 0)
+                            <li class="list-group-item">
+                                No members added
+                            </li>
+                    </ul>
+                        @endif   
+                        <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td><a href="/mylessonhours"> {{ $player->getFullName($player->id) }}</a></td>
-                                <td>{{ $player->gender }}</td>
-                                <td>{{ $player->birthdate->format('m-d-Y') }}</td>
+                                <th>Family Member</th>
+                                <th>Gender</th>
+                                <th>Birthdate</th>
                             </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </li>
+                        </thead>
+                        <tbody  class="card-inverse"  style="background-color: #f9f8de; border-color: #ccba6c;">
+                        @foreach($families->players as $player)
+                        <tr>
+                            <td><a href="/mylessonhours"> {{ $player->getFullName($player->id) }}</a></td>
+                            <td>{{ $player->gender }}</td>
+                            <td>{{ $player->birthdate->format('m-d-Y') }}</td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </li>
             </ul>
         </div>
     </div>
-    
 @endsection
 
 @section('sidebar-right')
-    <div class="col-sm-2 col-xs-2">
+    <div class="col-md-2">
         <h4>Add a New Family Member (Player)</h4>
         <form role="form" action="/myfamilyprofile/{{ $families->id }}/players" method="POST">
             <div class="row">
@@ -84,7 +83,6 @@
             </div>
             <input class="form-control" type="hidden" name="_token" value="{{ Session::token() }}"/>
             <button class="btn btn-default" type="submit" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Family Member</button>
-            
         </form>
     </div>
 @endsection
