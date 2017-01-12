@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Be right back.</title>
+        <title>Restricted view.</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -14,7 +14,7 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
+                color: #840000;
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato', sans-serif;
@@ -23,7 +23,7 @@
             .container {
                 text-align: center;
                 display: table-cell;
-                vertical-align: middle;
+                vertical-align: top;
             }
 
             .content {
@@ -41,7 +41,10 @@
         <div class="container">
             <div class="content">
                 <div class="title">
-                    <strong>You are not authorized to view this page. Tell Darnell to hide things a little better.</strong></div>
+                    <h4>Restricted view area.</h4>
+                    <a class="navbar-brand" href="{{ url('/') }}"><image src="{{ URL::asset('img/DStrokeLogoD.png') }}" alt="D`Stroke Tennis Logo" height="42px"></image><span style="color:#84000; font-size:14px; ">Home</span></a>
+                    <h5>You are not authorized to view this page. This is for site administrators only.</h5>
+                </div>
             </div>
         </div>
     </body>

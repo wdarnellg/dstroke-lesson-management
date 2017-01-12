@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Be right back.</title>
+        <title>Page not found</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -14,7 +14,7 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
+                color: #840000;
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato', sans-serif;
@@ -41,7 +41,9 @@
         <div class="container">
             <div class="content">
                 <div class="title">
-                    <strong>The page you seek is not at this location.</strong>
+                    <h4>Page not found.</h4>
+                    <a class="navbar-brand" href="{{ url('/') }}"><image src="{{ URL::asset('img/DStrokeLogoD.png') }}" alt="D`Stroke Tennis Logo" height="42px"></image><span style="color:#84000; font-size:14px; ">Home</span></a>
+                    <h5>The page you seek is not at this location.</h5>
                     </div>
             </div>
         </div>
