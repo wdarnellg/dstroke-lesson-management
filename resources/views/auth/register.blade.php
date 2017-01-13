@@ -93,7 +93,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LeouBEUAAAAACz-kmVQpxZ_Otqqs_w1j5OqMlFw"></div>
+                        <div class="g-recaptcha" data-sitekey="6LetuBEUAAAAAEknuM1hwnMHlygEbYiyS1HSX_Fs"></div>
                     </form>
                 </div>
             </div>
