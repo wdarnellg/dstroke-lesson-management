@@ -74,17 +74,17 @@
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                {!! app('captcha')->display() !!}
-                            </div>
-                        </div>
+                        <!--<div class="form-group">-->
+                        <!--    <div class="col-md-6 col-md-offset-4">-->
+                        <!--        {!! app('captcha')->display() !!}-->
+                        <!--    </div>-->
+                        <!--</div>-->
                         
-                         @if ($errors->has('g-recaptcha-response'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                        <!-- @if ($errors->has('g-recaptcha-response'))-->
+                        <!--            <span class="help-block">-->
+                        <!--                <strong>{{ $errors->first('password') }}</strong>-->
+                        <!--            </span>-->
+                        <!--        @endif-->
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
