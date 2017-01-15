@@ -26,8 +26,8 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
-      color: white;
+      background-color: #840000;
+      color: #f4be33;
       padding: 15px;
     }
     
@@ -86,25 +86,26 @@
 </nav>
 
   @section('sidebar-left')
-   <div class="col-sm-2 sidenav">
+   <div class="col-md-2 sidenav">
     </div>
   @show
 <div class="container-fluid text-left">    
   <div class="row content">
     
-    <div class="col-sm-8 text-left"> 
+    <div class="col-md-8 text-left"> 
       @yield('content')
       
     </div>
     @section('sidebar-right')
-    <div class="col-sm-2 sidenav">
+    <div class="col-md-2 sidenav">
      
     </div>
     @show
   </div><!-- row content-->
 </div><!-- container-fluid-->
+
 <footer class="container-fluid text-center">
-  <p><span class="glyphicon glyphicon-copyright-mark"></span>THAT DARN Web</p>
+  <p><span class="glyphicon glyphicon-copyright-mark"></span> THAT DARN Web</p>
 </footer>
 
 </body>
