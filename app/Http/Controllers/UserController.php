@@ -7,14 +7,19 @@ use Auth;
 use App\Players;
 use App\User;
 use Illuminate\Http\Request;
+use Notifiable;
 
 class UserController extends Controller
 {
-    // public function getusers()
-    // {
-    //      $users = User::orderBy('famname')->get();
-    //     return view('admin.users.users', compact('users'));
-    // }
+      /**
+     * Route notifications for the mail channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForMail()
+    {
+        return $this->email;
+    }
     
     public function storePlayer(Request $request, User $families)
     {
