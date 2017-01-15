@@ -46,7 +46,7 @@
 @endsection
 
 @section('sidebar-right')
-    <div class="col-md-2 col-sm-2">
+    <div class="col-md-2 ">
         <image class="img-rounded img-responsive center-block" style="padding:30px" src="{{ URL::asset('/img/hours.jpeg') }}" alt="Lesson Hours"></image>
     </div>
 @endsection

@@ -7,10 +7,10 @@
 @endsection
 
 @section('content')
-    <div class="col-md-6">
+    <div class="col-md-6 col-md-push-3">
         @include('includes.info-box')
-         <h5>Family Profile</h5>
-        <div class="card text-xs-center" style="background-color: #4286f4; border-color: #b5cbdd;">
+         <h3 style="color:#840000;">Family Profile</h3>
+        <div class="card text-xs-center" style="color:#840000; background-color: #abdef2; border-color: #8971e8;">
             <ul class="list-group">
                 <li class="list-group-item">
                     <h3>Family: {{ $families->familyname }}</h3>
@@ -25,7 +25,7 @@
                             </li>
                     </ul>
                         @endif   
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="color:840000;">
                         <thead>
                             <tr>
                                 <th>Family Member</th>
@@ -50,8 +50,8 @@
 @endsection
 
 @section('sidebar-right')
-    <div class="col-md-2">
-        <h4>Add a New Family Member (Player)</h4>
+    <div class="col-md-2 col-offset-1">
+        <h3 style="color:#840000;">Add a New Family Member (Player)</h3>
         <form role="form" action="/myfamilyprofile/{{ $families->id }}/players" method="POST">
             <div class="row">
             <div class="form-group">
