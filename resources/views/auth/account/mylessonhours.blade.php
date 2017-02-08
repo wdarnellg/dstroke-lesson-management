@@ -1,7 +1,12 @@
-@extends('layouts.accounts')
+@extends('layouts.main')
 
-@section('sidebar-left')
-<div class="col-md-2">
+
+
+@section('content')
+@include('includes.info-box')
+
+<div class="row">
+    <div class="col-md-5">
     <h3 style="color:#840000; padding-top: 30px;">Player Profile</h3>
         <ul class="list-group">
             <li class="list-group-item" style="color:#840000; background-color: #f9f8de; border-color: #f9f8de;">
@@ -13,15 +18,10 @@
                @endforeach
             </li>
         </ul>
-</div>
-@endsection
-
-@section('content')
-@include('includes.info-box')
-<div class="row">
-    <div class="col-md-6  col-md-push-3">
+    </div>
+    <div class="col-md-5">
     @foreach($players as $player)
-           <a href="https://dstroketennis.youcanbook.me/" data-ycbm-modal="true"><img src="https://youcanbook.me/resources/pics/ycbm-button.png" style="border-style:none; padding-top: 30px;"/><br>Setup a Lesson/Workout Time</a>
+           <a href="https://dstroketennisprepaid.youcanbook.me/" data-ycbm-modal="true"><img src="https://youcanbook.me/resources/pics/ycbm-button.png" style="border-style:none; padding-top: 30px;"/><br>Setup a Lesson/Workout Time</a>
             <h3 style="color:#840000;">Packages</h3>
          <div class="card card-inverse text-xs-left" style="background-color: #abdef2; border-color: #8971e8;">
         <div class="card-block">
@@ -59,14 +59,10 @@
             </div> 
      @endforeach
 </div>
+<div class="col-md-2">
+    <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/LessonPackages.jpg') }}" alt="Lesson Packages"  style="padding-top: 30px"/>
 </div>
+</div>
+
 @endsection
 
-@section('sidebar-right')
-<div class="col-md-2">
-    
-    <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/LessonPackages.jpg') }}" alt="Lesson Packages"  style="padding-top: 30px">
-    
-        
-</div>
-@endsection

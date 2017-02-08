@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     D`Stroke Tennis
@@ -7,10 +7,8 @@
 @section('content')
 
 <div class="row">
-        <div class="col-md-1 col-sm-1"></div>
-        <div class="col-md-4 col-sm-5"></div>
 
-<div class="col-md-4 col-sm-6">
+<div class="col-md-8">
      @include('includes.info-box')
      <div class="row">
          <h4>Edit Hours Used For:

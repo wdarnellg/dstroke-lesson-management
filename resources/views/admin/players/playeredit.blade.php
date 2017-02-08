@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     Edit Player
@@ -6,14 +6,14 @@
 
 @section('content')
     <div class="row">
-    <div class="col-md-4 col-sm-5"></div>
-    <div class="col-md-4">
+    
+    <div class="col-md-6">
 @include('includes.info-box')
         <section>
             <h4>D`Stroke Tennis Administrator</h4>
             <article>
              <a href="/players/{{ $player->id }}">Player List</a>
-               <div class="col-md-4">
+               <div class="col-md-6">
          <form role="form" action="/players/{{ $player->id }}" method="POST">
              {{ method_field('PATCH') }}
             <div class="row">
@@ -48,5 +48,5 @@
         </section>
     </div>
     </div>
-    <div class="col-md-4 col-sm-5"></div>
+    
 @endsection

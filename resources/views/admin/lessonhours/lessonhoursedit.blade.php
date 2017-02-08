@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     D`Stroke Tennis
@@ -7,8 +7,8 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-1 col-sm-1"></div>
-        <div class="col-md-4 col-sm-5">
+        
+        <div class="col-md-4">
     
         <h5><a class="pull-right" href="/lessonhours/{{ $lessonhours->id }}">Package Details</a></h5>
            
@@ -21,7 +21,7 @@
                 {{ method_field('PATCH') }}
                <div class="form-group">
                 @foreach ($lessonhours->players as $lessonhour)
-                <label for="players_id">{{ $lessonhour->players->getFullName($lessonhour->players_id) }}</label>
+                <label for="players_id">{{ $lessonhour->players->getFullName($lessonhour->players->id) }}</label>
                 @endforeach
                 <input class="form-control" type="hidden" name="players_id" id="players_id" value="{{ $lessonhours->players_id }}"/>
             </div> 

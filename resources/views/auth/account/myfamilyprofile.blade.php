@@ -1,14 +1,15 @@
-@extends('layouts.accounts')
-
-@section('sidebar-left')
-<div class="col-md-2">
-    <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/users_family.jpg') }}" alt="Family Profile"></imgage>
-</div>
-@endsection
+@extends('layouts.main')
 
 @section('content')
-    <div class="col-md-6 col-md-push-3">
+
+    <div class="row">
+    <div class="col-md-2">
+            <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/users_family.jpg') }}" alt="Family Profile"/>
+        </div>
+        
+    <div class="col-md-6">
         @include('includes.info-box')
+        
          <h3 style="color:#840000;">Family Profile</h3>
         <div class="card text-xs-center" style="color:#840000; background-color: #abdef2; border-color: #8971e8;">
             <ul class="list-group">
@@ -47,10 +48,8 @@
             </ul>
         </div>
     </div>
-@endsection
 
-@section('sidebar-right')
-    <div class="col-md-2 col-offset-1">
+    <div class="col-md-4">
         <h3 style="color:#840000;">Add a New Family Member (Player)</h3>
         <form role="form" action="/myfamilyprofile/{{ $families->id }}/players" method="POST">
             <div class="row">
@@ -82,8 +81,9 @@
             </div>
             </div>
             <input class="form-control" type="hidden" name="_token" value="{{ Session::token() }}"/>
-            <button class="btn btn-default" type="submit" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Family Member</button>
+            <button class="btn btn-success" type="submit" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Family Member</button>
         </form>
+    </div>
     </div>
 @endsection
 

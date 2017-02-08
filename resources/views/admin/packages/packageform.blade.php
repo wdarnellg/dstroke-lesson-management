@@ -56,7 +56,7 @@
             </div>
             <div class="row">
             <div class="form-group">
-                <label for="gender">Type:</label>
+                <label for="type">Type:</label>
                 <select class="form-control" name="type" id="type">
                   <option selected>Package Type</option>
                   <option value="Private">Private</option>

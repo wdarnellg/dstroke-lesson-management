@@ -136,7 +136,7 @@ class AdminController extends Controller
     {
         $packages = Packages::orderBy('type')->orderBy('name')->get();
         
-        return view('admin.lessonhours.lessonhoursedit', compact('lessonhours', 'packages'));
+        return view('admin.lessonhours.lessonhoursedit', compact('lessonhours', 'packages', 'players'));
     }
     
     public function LessonhoursUpdate(Request $request, Lessonhours $lessonhours)

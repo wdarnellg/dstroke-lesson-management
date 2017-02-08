@@ -1,44 +1,96 @@
-@extends('layouts.bsmaster')
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('sidebar-left')
-  <div class="col-sm-2 sidenav">
-    <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/DarnellBlueShirt.jpg') }}" alt="Darnell blue shirt">
-    <div class="card-block">
-      <p class="card-text">Since 1997 teaching tennis to people of all levels and age groups has been a labor of love and and joy.</p><p class="card-text"> Let me help you with your tennis!</p>
-      
-  </div>  
-  </div>
-  
-@endsection
+        <title>D`Stroke Tennis</title>
 
-@section('content')
-  <div class=" text-left"> 
-      <h1>Welcome</h1>
-       <image class="img-thumbnail img-responsive center-block" src="{{ URL::asset('/img/OnDCourtFade.png') }}" alt="D`Stroke Tennis" style="width: 100%" </image></image>
-    </div>
-@endsection
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-@section('sidebar-right')
-  <div class="col-sm-2 sidenav">
-      <div class="row">
-        <div class="card">
-      <image class="card-img-top img-rounded img-responsive center-block" src="{{ URL::asset('/img/ForehandBallToss.jpg') }}" alt="Darnell blue shirt"></image>
-      <div class="card-block">
-        <h4 class="card-title">Private Training</h4>
-        <p class="card-text">Some of the more intense packages available are geared toward high levels of tennis racquet and ball control.</p><p class="card-text"> Let me help you with your tennis!</p>
-        <!--<a href="#" class="btn btn-default">View Lesson Packages</a>-->
-      </div>
-    </div>
-    </div>
-    <div class="row">
-    <div class="card card-block">
-      <h4 class="card-title">Group Lessons/Workouts</h4>
-      <p class="card-text">Coming soon will be content that will explain how groups will work. There will also be content explaing how to hire DStroke Tennis Site Directing services.</p>
-      <!--<a href="#" class="card-link">Groups</a><br>-->
-      <!--<a href="#" class="card-link">Tournament Site Director</a>-->
-    </div>
-    </div>
-    </div>
-    @endsection
+        <!-- Styles -->
+
+    <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: Raleway, sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+            .full-height {
+                height: 100vh;
+            }
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            .position-ref {
+                position: relative;
+            }
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+            .content {
+                text-align: center;
+            }
+            .title {
+                font-size: 84px;
+            }
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .m-b-md {
+                margin-top: 120px;
+                margin-bottom: 30px;
+                color: #840000;
+            }
+        </style>
+</head>
+<body>
+    <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="#">Blog</a>
+                        <a href="{{ url('/packages') }}">Lesson Packages</a>
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif
+            <div class="content">
+                <div class="title m-b-md">
+                    Welcome to D`Stroke Tennis
+                </div>
+                <div class="flex-center">
+                    <image class="img-rounded img-responsive center-block" src="{{ URL::asset('/img/OnDCourtFade.png') }}" alt="D`Stroke"> 
+                </div>
+            </div>
+    
+</body>
+</html>
+
+
+
+
+     
+
+
+
 
 

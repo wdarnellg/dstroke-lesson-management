@@ -16,6 +16,8 @@ class PackagesTableSeeder extends Seeder
             'cost' => 55,
             'numberofhours' => 1,
             'type' => 'Private',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
+            
         ]);
         
         DB::table('packages')->insert([
@@ -23,6 +25,8 @@ class PackagesTableSeeder extends Seeder
             'cost' => 165,
             'numberofhours' => 4,
             'type' => 'Private',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
+            
         ]);
         
         DB::table('packages')->insert([
@@ -30,6 +34,7 @@ class PackagesTableSeeder extends Seeder
             'cost' => 240,
             'numberofhours' => 6,
             'type' => 'Private',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
         ]);
         
         DB::table('packages')->insert([
@@ -37,6 +42,7 @@ class PackagesTableSeeder extends Seeder
             'cost' => 95,
             'numberofhours' => 4,
             'type' => 'Semi-Private',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
         ]);
         
         DB::table('packages')->insert([
@@ -44,6 +50,23 @@ class PackagesTableSeeder extends Seeder
             'cost' => 140,
             'numberofhours' => 6,
             'type' => 'Semi-Private',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
+        ]);
+        
+        DB::table('packages')->insert([
+            'name' => '08 Lesson Semi',
+            'cost' => 155,
+            'numberofhours' => 8,
+            'type' => 'Semi-Private',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
+        ]);
+        
+        DB::table('packages')->insert([
+            'name' => '08 Lesson Group',
+            'cost' => 140,
+            'numberofhours' => 8,
+            'type' => 'Group',
+            'imagepath' => '/src/img/DStrokeLogoD.png'
         ]);
     }
 }

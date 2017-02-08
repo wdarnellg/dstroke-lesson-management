@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     D`Stroke Tennis

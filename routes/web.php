@@ -15,14 +15,28 @@ use App\Mail\ThankYouForLessonPackagePurchase;
 Route::get('/', function () {
         return view('welcome');
     });
+    
+Route::get('/home', [
+        'uses' => 'FrontController@getIndex',
+        'as' => 'home'
+        ]);
 
 Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/home', 'HomeController@index');
+
 
 
 //Admin Routes///////////////////////////////////////////////////////////////////////////
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
+    Route::post('toggledeliver/{orderId}', 'OrderController@toggledeliver')->name('toggle.deliver');
+    Route::get('/', function () {return view('admin.index'); })->name('admin.index');
+    Route::resource('package','PackageController');
+    Route::resource('category','CategoriesController');
+    Route::get('orders/{type?}', 'OrderController@Orders');
+});
     Route::get('/dashboard', 'HomeController@admin')->middleware('admin');
     Route::auth();
     Route::get('/packageform', 'AdminController@getPackageform')->middleware('admin');
@@ -69,6 +83,31 @@ Route::get('/home', 'HomeController@index');
     Route::post('/myfamilyprofile/{families}/players', 'UserController@storePlayer')->middleware('auth');
 //End Accounts Routes//////////////////////////////////////////////////////////////////////
 
-//Shopping Cart Routes/////////////////////////////////////////////////////////////////////////
+Route::group(['middleware' => ['web', 'auth']], function () {
+      //Shopping Cart Routes/////////////////////////////////////////////////////////////////////////
+    Route::get('/packages', [
+        'uses' => 'FrontController@packages',
+        'as' => 'packages'
+        ]);
+        
+    Route::get('/package/{id}', [
+        'uses' => 'FrontController@package',
+        'as' => 'package'
+        ]);
+        
+    Route::resource('/cart', 'CartController');
+    Route::get('/cart/add-item/{id}',[ 
+            'uses' => 'CartController@addItem',
+            'as' => 'cart.addItem']);
+     
+    Route::get('payment','CheckoutController@payment')->name('checkout.payment');
+    Route::post('store-payment','CheckoutController@storePayment')->name('payment.store');
+    Route::get('/front/paymentthanks', [
+                'uses' => 'CheckoutController@paymentThanks',
+                'as' => 'paymentthanks'
+                ]);
+
+
 
 //End Shopping Cart Routes//////////////////////////////////////////////////////////////////////
+});

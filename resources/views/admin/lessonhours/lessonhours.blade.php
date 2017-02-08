@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     D`Stroke Tennis
@@ -7,11 +7,10 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-1 col-sm-1"></div>
-        <div class="col-md-4 col-sm-5">
+        
+        <div class="col-md-8">
     @include('includes.info-box')
         <div class="row">
-            <h5><a class="pull-right" href="/players/{{ $lessonhours->players_id }}">Player Profile</a></h5>
             <h4>Lesson Package Details</h4>
         </div>
         
@@ -70,8 +69,8 @@
           
         
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-4 col-sm-5">
+        
+        <div class="col-md-3 push-1">
             <form role="form" action="/lessonhours/{{ $lessonhours->id }}/hoursused" method="POST">
             <div class="row">
                 <div class="form-group">

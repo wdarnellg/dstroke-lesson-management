@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -56,6 +56,9 @@
 
                                 <a class="btn btn-link btn-info" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
+                                </a><br>
+                                <a class="btn btn-link btn-info" href="{{ url('/register') }}">
+                                    Do You Need To Register?
                                 </a>
                             </div>
                         </div>

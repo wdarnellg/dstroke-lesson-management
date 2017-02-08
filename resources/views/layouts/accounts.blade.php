@@ -59,6 +59,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
+        <a class="navbar-brand" href="{{ url('/index') }}">Packages</a>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">

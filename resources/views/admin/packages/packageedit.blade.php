@@ -42,6 +42,12 @@
             </div>
             </div>
             <div class="row">
+            <div class="form-group">
+                <label for="description">Description:</label>
+               <input class="form-control" type="text" name="description" id="description" value="{{ $packages->description}}"/>
+            </div>
+            </div>
+            <div class="row">
                 <button type="submit" class="btn btn-default">Update Package</button>
                 <input class="form-control" type="hidden" name="_token" value="{{ Session::token() }}"/>
             </div>

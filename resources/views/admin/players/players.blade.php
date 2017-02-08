@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     Player List
@@ -7,8 +7,8 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-4 col-sm-5"></div>
-    <div class="col-md-4">
+    
+    <div class="col-md-6">
 @include('includes.info-box')
         <h4>Main Player List</h4>
     <article>
@@ -41,7 +41,7 @@
     </article>
     </section>
     </div>
-    <div class="col-md-4 col-sm-5"></div>
+    
     
 </div>
 

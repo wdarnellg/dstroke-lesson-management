@@ -31,4 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Players', 'users_id');
     }
+    
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

@@ -1,7 +1,8 @@
-@extends('layouts.accounts')
+@extends('layouts.main')
 
-@section('sidebar-left')
-    <div class="col-md-2 col-sm-2">
+@section('content')
+    <div class="row">
+    <div class="col-md-3">
         <h3 style="padding-top: 30px; color:#f4be33;">Used Hours</h3>
         <ul class="list-group" style="">
             <li class="list-group-item" style="color:#f4be33; background-color: #840000; border-color: #f9f8de;">
@@ -13,12 +14,9 @@
         </ul>
         
     </div>
-@endsection
-
-@section('content')
-    <div class="col-sm-6 col-md-6 col-md-push-3">
+    <div class="col-md-7 col-md-push-1">
         @include('includes.info-box')
-        <a href="https://dstroketennis.youcanbook.me/" data-ycbm-modal="true"><img src="https://youcanbook.me/resources/pics/ycbm-button.png" style="padding-top: 30px; border-style:none;"/><br><span style="color:840000;">Setup a Lesson/Workout Time</span></a>
+        <a href="https://dstroketennisprepaid.youcanbook.me/" data-ycbm-modal="true"><img src="https://youcanbook.me/resources/pics/ycbm-button.png" style="padding-top: 30px; border-style:none;"/><br><span style="color:840000;">Setup a Lesson/Workout Time</span></a>
         
         <h3 style="color:#840000;">Package Details for: {{ $lessonhours->packages->name }}<br> Signed up: {{ $lessonhours->signup_date->format('m-d-Y') }}</h3>
         
@@ -43,10 +41,8 @@
             @endif
         </ul>
     </div>
-@endsection
-
-@section('sidebar-right')
     <div class="col-md-2 ">
         <image class="img-rounded img-responsive center-block" style="padding:30px" src="{{ URL::asset('/img/hours.jpeg') }}" alt="Lesson Hours"></image>
+    </div>
     </div>
 @endsection

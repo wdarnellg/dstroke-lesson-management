@@ -9,7 +9,7 @@ class Packages extends Model
 {
     public $table = "packages";
     
-    protected $fillable = array('name', 'cost', 'numberofhours', 'type');
+    protected $fillable = array('name', 'cost', 'numberofhours', 'type', 'imagepath', 'category_id', 'description');
     
     public function lessonhours()
     {
@@ -19,6 +19,11 @@ class Packages extends Model
     public function sharedlessonhours()
     {
         return hasMany('App\SharedLessonhoursharedlessonhours');
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
     
 }

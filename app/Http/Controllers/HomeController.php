@@ -23,11 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('front.home');
     }
     
     public function admin()
     {
-        return view('dashboard');
+        return view('admin.index');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('admin.layout.admin')
 
 @section('title')
     D`Stroke Tennis
@@ -7,8 +7,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-1 col-sm-1"></div>
-    <div class="col-md-4 col-sm-5">
+    <div class="col-md-8">
 @include('includes.info-box')
                 
             <section>
@@ -50,8 +49,7 @@
     
     </section>
     </div>
-    <div class="col-md-1 col-sm-1"></div>
-    <div class="col-md-4 col-sm-5">
+    <div class="col-md-3 push-md-1">
         <h4>Add a New Family Member (Player)</h4>
         <form role="form" action="/users/{{ $families->id }}/players" method="POST">
             <div class="row">

@@ -1,4 +1,4 @@
-@extends('layouts.bsmaster')
+@extends('layouts.app')
 
 @section('sidebar-left')
 

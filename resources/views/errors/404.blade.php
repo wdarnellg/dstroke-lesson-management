@@ -42,7 +42,7 @@
             <div class="content">
                 <div class="title">
                     <h4>Page not found.</h4>
-                    <a class="navbar-brand" href="{{ url('/') }}"><image src="{{ URL::asset('img/DStrokeLogoD.png') }}" alt="D`Stroke Tennis Logo" height="42px"></image><span style="color:#84000; font-size:14px; ">Home</span></a>
+                    <a class="navbar-brand" href="{{ url('/home') }}"><image src="{{ URL::asset('img/DStrokeLogoD.png') }}" alt="D`Stroke Tennis Logo" height="42px"></image><span style="color:#84000; font-size:14px; ">Home</span></a>
                     <h5>The page you seek is not at this location.</h5>
                     </div>
             </div>
