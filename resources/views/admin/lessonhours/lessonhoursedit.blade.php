@@ -21,7 +21,7 @@
                 {{ method_field('PATCH') }}
                <div class="form-group">
                 @foreach ($lessonhours->players as $lessonhour)
-                <label for="players_id">{{ $lessonhour->players->getFullName($lessonhour->players->id) }}</label>
+                <label for="players_id">{{ $lessonhour->getFullName($lessonhour->players_id) }}</label>
                 @endforeach
                 <input class="form-control" type="hidden" name="players_id" id="players_id" value="{{ $lessonhours->players_id }}"/>
             </div> 
@@ -50,7 +50,7 @@
             </div>
             </div>
             <input class="form-control" type="hidden" name="_token" value="{{ Session::token() }}"/>
-            <input class="btn btn-default" type="submit" value="Update Lesson Hours"/>
+            <input class="btn btn-info" type="submit" value="Update Lesson Hours"/>
         </form> 
         </div>
         

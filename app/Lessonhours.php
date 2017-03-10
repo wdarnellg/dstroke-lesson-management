@@ -13,7 +13,7 @@ class Lessonhours extends Model
 {
     use Notifiable;
     
-    protected $fillable = array('signup_date', 'players_id', 'packages_id');
+    protected $fillable = array('signup_date', 'packages_id');
     
     public $table = "lessonhours";
     

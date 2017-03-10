@@ -102,12 +102,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
      
     Route::get('payment','CheckoutController@payment')->name('checkout.payment');
     Route::post('store-payment','CheckoutController@storePayment')->name('payment.store');
-    Route::get('/front/paymentthanks', [
-                'uses' => 'CheckoutController@paymentThanks',
-                'as' => 'paymentthanks'
-                ]);
-
-
+    Route::get('/front/paymentthanks', 'CheckoutController@paymentThanks')->name('paymentthanks');
 
 //End Shopping Cart Routes//////////////////////////////////////////////////////////////////////
 });

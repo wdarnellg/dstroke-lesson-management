@@ -76,7 +76,7 @@
                         
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                {!! app('captcha')->display() !!}
+                                {!! app('captcha')->display(); !!}
                             </div>
                         </div>
                         
@@ -85,7 +85,9 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LdB5BQUAAAAALfh4ABkhEFd-48I8poUASFXhUtn"></div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
